@@ -9,6 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Cache node modules
+        uses: actions/cache
+        with:
+          path: ~/.npm
+          key: ${{runner.os}}-node-${{hashFiles('**/package-locl.json')}}
+          restore-key: |
+            ${{runner.os}}-node-
       - name: Use NodJS
         uses: actions/setup-node@v1
         with:
