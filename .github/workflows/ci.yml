@@ -10,10 +10,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Cache node modules
-        uses: actions/cache
+        uses: actions/cache@v2
         with:
           path: ~/.npm
-          key: ${{runner.os}}-node-${{hashFiles('**/package-locl.json')}}
+          key: ${{runner.os}}-node-${{hashFiles('**/package-lock.json')}}
           restore-key: |
             ${{runner.os}}-node-
       - name: Use NodJS
